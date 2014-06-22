@@ -240,6 +240,7 @@ public class MainActivity extends Activity {
 										dialog.cancel();
 
 										continuar(v);
+										
 
 									}
 

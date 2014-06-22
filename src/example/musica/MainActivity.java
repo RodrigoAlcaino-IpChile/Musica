@@ -147,9 +147,9 @@ public class MainActivity extends Activity {
 				pausar(v);
 				
 				final CharSequence[] items = {
-						"Existe siempre esa unica persona que siempre tendra tu corazon",
-						"No se todo acerca de ti pero yo se de nosotros",
-						"recuerdas nena, quien era el que te dio tu primer beso"
+						"There's always that one person that will always have your heart",
+						"I don't know about y'all but I know about us and uhh ",
+						"Do you remember girl, who was he one who gave you your first kiss"
 				};
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);

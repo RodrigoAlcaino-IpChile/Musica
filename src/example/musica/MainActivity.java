@@ -17,8 +17,8 @@ public class MainActivity extends Activity {
 
 	public TextView tiempoRestante, tvCorrectas, tvIncorrectas;
 	public String tiempo = "0";
-	public int correctas = 0;
-	public int incorrectas = 0;
+	public int correctas;
+	public int incorrectas;
 
 	private double startTime = 0;
 
@@ -32,8 +32,6 @@ public class MainActivity extends Activity {
 
 	MediaPlayer mp;
 	int posicion = 0;
-	
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -82,13 +80,13 @@ public class MainActivity extends Activity {
 		destruir();
 		mp = MediaPlayer.create(this, R.raw.my_boo);
 		mp.start();
-		
+
 		incorrectas = 0;
 		tvIncorrectas.setText(Integer.toString(incorrectas));
 		correctas = 0;
 		tvCorrectas.setText(Integer.toString(correctas));
 		tiempoRestante.setText("0");
-		
+
 		iniciarHilo();
 	}
 
@@ -115,7 +113,7 @@ public class MainActivity extends Activity {
 			correctas = 0;
 			tvCorrectas.setText(Integer.toString(correctas));
 			tiempoRestante.setText("0");
-	
+
 		}
 	}
 
@@ -137,126 +135,288 @@ public class MainActivity extends Activity {
 	}
 
 	public void abrePopup() {
-		
+		final View v = null;
 
-		if (tiempo.equals("0 min, 5 sec")) {
+		if (tiempo.equals("0 min, 22 sec")) {
 
 			try {
 				Thread.sleep(1000);
-				final View v = null;
-				pausar(v);
-				
-				final CharSequence[] items = {
-						"There's always that one person that will always have your heart",
-						"I don't know about y'all but I know about us and uhh ",
-						"Do you remember girl, who was he one who gave you your first kiss"
-				};
-
-				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-				builder.setTitle("De Que Habla Esta Primera Estrofa?");
-				builder.setSingleChoiceItems(items, -1,
-						new DialogInterface.OnClickListener() {
-
-							public void onClick(DialogInterface dialog, int item) {
-
-								if (items[item].equals("Existe siempre esa unica persona que siempre tendra tu corazon")) {
-
-									Toast toast = Toast.makeText(
-											getApplicationContext(),
-											"Haz elegido la opcion Correcta: "
-													+ items[item],
-											Toast.LENGTH_SHORT);
-									toast.show();
-									dialog.cancel();
-									correctas++;							
-									tvCorrectas.setText(Integer.toString(correctas));
-									continuar(v);
-								} else {
-
-									Toast toast = Toast.makeText(
-											getApplicationContext(),
-											"Haz elegido la opcion Incorrecta: "
-													+ items[item],
-											Toast.LENGTH_SHORT);
-									toast.show();
-									dialog.cancel();
-									incorrectas++;							
-									tvIncorrectas.setText(Integer.toString(incorrectas));
-									continuar(v);
-
-								}
-
-							}
-						});
-				AlertDialog alert = builder.create();
-				alert.show();
-
-				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			pausar(v);
 
-		} else {
+			final CharSequence[] items = { "it's clear for everyone to see.",
+					"Ooh baby, you'll always be my boo.", };
 
-			if (tiempo.equals("0 min, 20 sec")) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("What comes after? Know that you're that one for me.");
+			builder.setSingleChoiceItems(items, -1,
+					new DialogInterface.OnClickListener() {
 
-				try {
+						public void onClick(DialogInterface dialog, int item) {
 
-					Thread.sleep(1000);
-					final View v = null;
-					pausar(v);
+							if (items[item]
+									.equals("it's clear for everyone to see.")) {
 
-					final CharSequence[] items = { "Android OS", "iOS",
-							"Windows Phone", "Meego" };
+								Toast toast = Toast.makeText(
+										getApplicationContext(),
+										"Haz elegido la opcion Correcta: "
+												+ items[item],
+										Toast.LENGTH_SHORT);
+								toast.show();
+								dialog.cancel();
+								correctas++;
+								tvCorrectas.setText(Integer.toString(correctas));
+								continuar(v);
+							} else {
 
-					AlertDialog.Builder builder = new AlertDialog.Builder(this);
-					builder.setTitle("Tu OS móvil preferido?");
-					builder.setSingleChoiceItems(items, -1,
-							new DialogInterface.OnClickListener() {
+								Toast toast = Toast.makeText(
+										getApplicationContext(),
+										"Haz elegido la opcion Incorrecta: "
+												+ items[item],
+										Toast.LENGTH_SHORT);
+								toast.show();
+								dialog.cancel();
+								incorrectas++;
+								tvIncorrectas.setText(Integer
+										.toString(incorrectas));
+								continuar(v);
 
-								public void onClick(DialogInterface dialog,
-										int item) {
+							}
 
-									if (items[item].equals("iOS")) {
+						}
+					});
+			AlertDialog alert = builder.create();
+			alert.show();
 
-										Toast toast = Toast.makeText(
-												getApplicationContext(),
-												"Haz elegido la opcion: "
-														+ items[item],
-												Toast.LENGTH_SHORT);
-										toast.show();
-										dialog.cancel();
+		}
 
-										continuar(v);
-									} else {
+		if (tiempo.equals("0 min, 54 sec")) {
 
-										Toast toast = Toast.makeText(
-												getApplicationContext(),
-												"Haz elegido la opcion Incorrecta: "
-														+ items[item],
-												Toast.LENGTH_SHORT);
-										toast.show();
-										dialog.cancel();
+			try {
 
-										continuar(v);
+				Thread.sleep(1000);
 
-									}
-
-								}
-							});
-					AlertDialog alert = builder.create();
-					alert.show();
-
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-
-			} else {
-
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+			pausar(v);
+
+			final CharSequence[] items = { "Future", "Past", "Present Simple" };
+
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("I was there and you were my baby. This sentences is?");
+			builder.setSingleChoiceItems(items, -1,
+					new DialogInterface.OnClickListener() {
+
+						public void onClick(DialogInterface dialog, int item) {
+
+							if (items[item].equals("Past")) {
+
+								Toast toast = Toast.makeText(
+										getApplicationContext(),
+										"Haz elegido la opcion Correcta: "
+												+ items[item],
+										Toast.LENGTH_SHORT);
+								toast.show();
+								dialog.cancel();
+								correctas++;
+								tvCorrectas.setText(Integer.toString(correctas));
+								continuar(v);
+							} else {
+
+								Toast toast = Toast.makeText(
+										getApplicationContext(),
+										"Haz elegido la opcion Incorrecta: "
+												+ items[item],
+										Toast.LENGTH_SHORT);
+								toast.show();
+								dialog.cancel();
+								incorrectas++;
+								tvIncorrectas.setText(Integer
+										.toString(incorrectas));
+								continuar(v);
+
+							}
+
+						}
+					});
+			AlertDialog alert = builder.create();
+			alert.show();
+
+		}
+
+		if (tiempo.equals("1 min, 18 sec")) {
+
+			try {
+
+				Thread.sleep(1000);
+
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			pausar(v);
+
+			final CharSequence[] items = { "Wife", "Girlfriend", "Friend" };
+
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("The title - MY BOO - means?");
+			builder.setSingleChoiceItems(items, -1,
+					new DialogInterface.OnClickListener() {
+
+						public void onClick(DialogInterface dialog, int item) {
+
+							if (items[item].equals("Girlfriend")) {
+
+								Toast toast = Toast.makeText(
+										getApplicationContext(),
+										"Haz elegido la opcion Correcta: "
+												+ items[item],
+										Toast.LENGTH_SHORT);
+								toast.show();
+								dialog.cancel();
+								correctas++;
+								tvCorrectas.setText(Integer.toString(correctas));
+								continuar(v);
+							} else {
+
+								Toast toast = Toast.makeText(
+										getApplicationContext(),
+										"Haz elegido la opcion Incorrecta: "
+												+ items[item],
+										Toast.LENGTH_SHORT);
+								toast.show();
+								dialog.cancel();
+								incorrectas++;
+								tvIncorrectas.setText(Integer
+										.toString(incorrectas));
+								continuar(v);
+
+							}
+
+						}
+					});
+			AlertDialog alert = builder.create();
+			alert.show();
+
+		}
+
+		if (tiempo.equals("1 min, 42 sec")) {
+
+			try {
+
+				Thread.sleep(1000);
+
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			pausar(v);
+
+			final CharSequence[] items = { "Usualy", "Never", "Always" };
+
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Complete: You will ---- be my boo.");
+			builder.setSingleChoiceItems(items, -1,
+					new DialogInterface.OnClickListener() {
+
+						public void onClick(DialogInterface dialog, int item) {
+
+							if (items[item].equals("Always")) {
+
+								Toast toast = Toast.makeText(
+										getApplicationContext(),
+										"Haz elegido la opcion Correcta: "
+												+ items[item],
+										Toast.LENGTH_SHORT);
+								toast.show();
+								dialog.cancel();
+								correctas++;
+								tvCorrectas.setText(Integer.toString(correctas));
+								continuar(v);
+							} else {
+
+								Toast toast = Toast.makeText(
+										getApplicationContext(),
+										"Haz elegido la opcion Incorrecta: "
+												+ items[item],
+										Toast.LENGTH_SHORT);
+								toast.show();
+								dialog.cancel();
+								incorrectas++;
+								tvIncorrectas.setText(Integer
+										.toString(incorrectas));
+								continuar(v);
+
+							}
+
+						}
+					});
+			AlertDialog alert = builder.create();
+			alert.show();
+
+		}
+
+		if (tiempo.equals("2 min, 1 sec")) {
+
+			try {
+
+				Thread.sleep(1000);
+
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			pausar(v);
+
+			final CharSequence[] items = {
+					"Yo solo puedo dormir acerca de tus labios",
+					"Yo solo puedo sentir tus labios",
+					"Yo solo puedo pensar acerca de tus labios" };
+
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Translate: I can only thik about you're lips.");
+			builder.setSingleChoiceItems(items, -1,
+					new DialogInterface.OnClickListener() {
+
+						public void onClick(DialogInterface dialog, int item) {
+
+							if (items[item].equals("Yo solo puedo pensar acerca de tus labios")) {
+
+								Toast toast = Toast.makeText(
+										getApplicationContext(),
+										"Haz elegido la opcion Correcta: "
+												+ items[item],
+										Toast.LENGTH_SHORT);
+								toast.show();
+								dialog.cancel();
+								correctas++;
+								tvCorrectas.setText(Integer.toString(correctas));
+								continuar(v);
+							} else {
+
+								Toast toast = Toast.makeText(
+										getApplicationContext(),
+										"Haz elegido la opcion Incorrecta: "
+												+ items[item],
+										Toast.LENGTH_SHORT);
+								toast.show();
+								dialog.cancel();
+								incorrectas++;
+								tvIncorrectas.setText(Integer
+										.toString(incorrectas));
+								continuar(v);
+
+							}
+
+						}
+					});
+			AlertDialog alert = builder.create();
+			alert.show();
 
 		}
 

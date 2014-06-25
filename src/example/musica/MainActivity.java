@@ -182,7 +182,7 @@ public class MainActivity extends Activity {
 								incorrectas++;
 								tvIncorrectas.setText(Integer
 										.toString(incorrectas));
-								continuar(v);
+								iniciar(v);
 
 							}
 
@@ -238,7 +238,7 @@ public class MainActivity extends Activity {
 								incorrectas++;
 								tvIncorrectas.setText(Integer
 										.toString(incorrectas));
-								continuar(v);
+								iniciar(v);
 
 							}
 
@@ -294,7 +294,7 @@ public class MainActivity extends Activity {
 								incorrectas++;
 								tvIncorrectas.setText(Integer
 										.toString(incorrectas));
-								continuar(v);
+								iniciar(v);
 
 							}
 
@@ -350,7 +350,7 @@ public class MainActivity extends Activity {
 								incorrectas++;
 								tvIncorrectas.setText(Integer
 										.toString(incorrectas));
-								continuar(v);
+								iniciar(v);
 
 							}
 
@@ -409,7 +409,7 @@ public class MainActivity extends Activity {
 								incorrectas++;
 								tvIncorrectas.setText(Integer
 										.toString(incorrectas));
-								continuar(v);
+								iniciar(v);
 
 							}
 

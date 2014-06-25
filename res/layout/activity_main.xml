@@ -88,7 +88,7 @@
         android:layout_alignRight="@+id/textView2"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="16dp"
-        android:text="Brong:" />
+        android:text="Wrong:" />
 
     <TextView
         android:id="@+id/tvIncorrectas"
